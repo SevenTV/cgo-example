@@ -5,12 +5,9 @@
 #include "point.hpp"
 #include "utils.hpp"
 
-// this include is exported by cgo and it provides the Log function
-#include "_cgo_export.h"
-
 Point::Point(double x, double y)
 {
-    Log(1, string_format("new point (%p) x=%2.f y=%2.f", this, x, y));
+    GoLog(1, "new point (%p) x=%2.f y=%2.f", this, x, y);
 
     this->_x = x;
     this->_y = y;

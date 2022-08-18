@@ -4,19 +4,15 @@ package point
 // #cgo CFLAGS: -std=c11
 // #cgo LDFLAGS: -static
 // #include "cpoint.h"
-// #include <stdlib.h>
 import "C"
 import (
 	"log"
 	"runtime"
-	"unsafe"
 )
 
 //export Log
 func Log(level int, msg *C.char) {
 	log.Printf("%d - %s", level, C.GoString(msg))
-
-	C.free(unsafe.Pointer(msg))
 }
 
 type Point struct {

@@ -17,10 +17,14 @@ func test(p *point.Point, q *point.Point) {
 
 	dist := point.Distance(p, q)
 	if dist != 5 {
-		fmt.Println(p.X(), p.Y(), q.X(), q.Y())
 		log.Fatal("Wrong distance")
 	}
 }
+
+var (
+	i  int
+	pI int
+)
 
 func main() {
 	go func() {
@@ -34,7 +38,7 @@ func main() {
 		}
 	}()
 
-	for i := 0; i < 1e10; i++ {
+	for i = 0; i < 1e10; i++ {
 		test(nil, nil)
 	}
 }
@@ -45,7 +49,9 @@ func PrintMemUsage() {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
 	// For info on each, see: https://golang.org/pkg/runtime/#MemStats
-	fmt.Printf("Alloc = %v MiB\tTotalAlloc = %v MiB\tSys = %v MiB\tNumGC = %v\n", bToMb(m.Alloc), bToMb(m.TotalAlloc), bToMb(m.Sys), m.NumGC)
+	x := i
+	fmt.Printf("Alloc = %v MiB\tTotalAlloc = %v MiB\tSys = %v MiB\tNumGC = %v\ttop = %d\tops = %d\n", bToMb(m.Alloc), bToMb(m.TotalAlloc), bToMb(m.Sys), m.NumGC, x, x-pI)
+	pI = x
 }
 
 func bToMb(b uint64) uint64 {
