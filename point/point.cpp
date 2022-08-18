@@ -1,9 +1,11 @@
 #include <cmath>
-#include <memory>
 #include <iostream>
+#include <memory>
 
 #include "point.hpp"
-#include "utils.h"
+#include "utils.hpp"
+
+// this include is exported by cgo and it provides the Log function
 #include "_cgo_export.h"
 
 Point::Point(double x, double y)
@@ -14,9 +16,7 @@ Point::Point(double x, double y)
     this->_y = y;
 }
 
-Point::~Point() {
-    // std::cout << this << std::endl;
-};
+Point::~Point() = default;
 
 double Point::x()
 {
@@ -28,7 +28,7 @@ double Point::y()
     return this->_y;
 }
 
-double Point::distance(const std::unique_ptr<Point> & p, const std::unique_ptr<Point> & q)
+double Point::distance(const std::unique_ptr<Point>& p, const std::unique_ptr<Point>& q)
 {
     double dx = p->x() - q->x();
     double dy = p->y() - q->y();

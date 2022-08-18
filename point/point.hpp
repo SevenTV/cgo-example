@@ -9,10 +9,11 @@ public:
     ~Point();
     double x();
     double y();
-    static double distance(const std::unique_ptr<Point> & p, const std::unique_ptr<Point> & q);
+    static double distance(const std::unique_ptr<Point>& p, const std::unique_ptr<Point>& q);
+
 private:
     double _x;
     double _y;
 };
 
-#endif  /* POINT_HPP */
+#endif /* POINT_HPP */
