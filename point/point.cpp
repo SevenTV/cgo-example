@@ -15,20 +15,20 @@ Point::Point(double x, double y)
 
 Point::~Point() = default;
 
-double Point::x()
+double Point::x() const
 {
     return this->_x;
 }
 
-double Point::y()
+double Point::y() const
 {
     return this->_y;
 }
 
-double Point::distance(const std::unique_ptr<Point>& p, const std::unique_ptr<Point>& q)
+double Point::distance(const Point& p, const Point& q)
 {
-    double dx = p->x() - q->x();
-    double dy = p->y() - q->y();
+    double dx = p.x() - q.x();
+    double dy = p.y() - q.y();
 
     return sqrt(dx * dx + dy * dy);
 }

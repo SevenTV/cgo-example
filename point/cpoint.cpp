@@ -44,5 +44,5 @@ double point_distance(point_t* p, point_t* q)
     assert(p);
     assert(q);
 
-    return Point::distance(p->obj, q->obj);
+    return Point::distance(*p->obj, *q->obj);
 }
