@@ -28,8 +28,6 @@ void GoLog(const int level, const std::string& format, Args... args) {
 
     // also note, that this function here is expensive to call back into golang from c
     // you should try avoid doing this logging is a good usecase if u have a global golang logger, but try be very selective with where u log.
-    // since we create so many points logging on a new point each time costs a lot of time.
-    // this is just a debug tool so we can see that it actually works.
     Log(level, msg);
 
     free(msg);

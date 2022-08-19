@@ -1,14 +1,13 @@
 #include <cmath>
 #include <iostream>
 #include <memory>
+#include <algorithm>
 
 #include "point.hpp"
 #include "utils.hpp"
 
 Point::Point(double x, double y)
 {
-    GoLog(1, "new point (%p) x=%2.f y=%2.f", this, x, y);
-
     this->_x = x;
     this->_y = y;
 }
